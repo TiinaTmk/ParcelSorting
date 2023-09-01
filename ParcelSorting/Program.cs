@@ -22,19 +22,16 @@
                 var halfBoxDiagonalNotSqrt = (boxLengthInHalf * boxLengthInHalf) + (box.Width * box.Width);
                 var halfParcelDiagonal = Math.Sqrt(halfBoxDiagonalNotSqrt);
 
+                var LineWidth = o;
+
 
                 foreach (SortingLineParam sortingLine in box.SortingLineParams)
                 {
+                    var SortingLineNoSqrt = (sortingLine.Width * sortingLine.Width) + (LineWidth * LineWidth);
 
-                    foreach (Boxsize box in boxSizes)
-                    {
-                        Console.WriteLine("New sorting line starts");
+                    var cornerDiagonal = Math.Sqrt(SortingLineNoSqrt);
 
-                    var boxLength = box.Length;
-                    var BoxDiagonalNotSqrt = (boxLengthInHalf * boxLengthInHalf) + (box.Width * box.Width);
-                    var halfParcelDiagonal = Math.Sqrt(halfBoxDiagonalNotSqrt);
 
-                    }
 
 
                     if (sortingLine.Width >= halfParcelDiagonal)
@@ -46,12 +43,16 @@
                         Console.WriteLine("Sorting line width or length is and fits", sortingLine.Width);
                     }
 
-                    else if (sortingLine.Width <= halfParcelDiagonal && sortingLine.Width >= sortingLineDiagonal)
+                    else if (sortingLine.Width <= halfParcelDiagonal && Line.Width >= halfParcelDiagonal)
+                    {
+                        Console.WriteLine("Sorting line width is {0} and fits", sortingLine.Width);
+                    }
 
                     else
                     {
                         Console.WriteLine("It dosent fit to the sorting line and needs to be wider");
                     }
+                    LineWidth = sortingLine.Width
 
 
                 }
